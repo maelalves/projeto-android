@@ -1,0 +1,222 @@
+/*regras de fontes*/
+/* o @import vem do site do google-fonts onde o import traz o endereço da font a ser importada*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*regra para font existente nos documentos do site*/
+@font-face {
+    font-family: 'idroid';
+    src: url('fontes/idroid.otf') format('opentype');
+}
+
+/*essa regra chama no css a font que foi importada pelo @import*/
+@font-family{ /*esta dando erro porem não sei o porque */
+    font-family: 'Bebas Neue', cursive;
+}
+
+/*raiz da arvore para cores*/
+:root{
+    --color1: rgba(130, 224, 173, 1); /*background dos titulos*/
+    --color2: rgba(61, 219, 132, 1);
+    --color3: rgba(47, 168, 102, 1);
+    --color4: rgba(26, 92, 55, 1);
+    --color5: rgba(53, 92, 71, 1);/*footer*/
+    --color6: rgb(197, 235, 214); /*bacground do body*/
+
+    --font-padrao: Arial, Verdana, Helvetica, sans-serif;
+}
+
+/*style do html*/
+/*deiza padding e margin 0px em tds pos elementos*/
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: var(--color6);
+    
+}
+
+a.externo::after{
+    content: '\00A0\1F517'; /*coloca emoji nos links. ::after faz o emoji ficar apos o link*/
+}
+
+header{
+    background-image: linear-gradient(to bottom, var(--color3), var(--color5));/*ao invez dde usar 180deg, use to bottom ou top, left e right*/
+    min-height: 150px;
+    padding-top: 40px;
+    
+}
+
+header h1{
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    font-weight: normal;
+    font-family: 'Bebas Neue';
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+}
+
+header p{
+    color: white;
+    text-align: center;
+    font-family: var(--font-padrao);
+    font-size: 1.2em;
+    max-width: 600px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+}
+
+nav{
+    background-color: var(--color5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.363);
+}
+
+nav a{
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    /*conf o border individualmente*/
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+nav a:hover{ /*conf a interação ao passar o mouse por cima dos links*/
+    background-color: var(--color3);
+    color: var(--color5);
+}
+
+main{
+    background-color: white;
+    padding: 20px;
+    min-width: 300px;
+    max-width: 1000px; /*largura maxima da tela*/
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+
+    /*o border-radius eta conf individualmente porque ele por padrão so configura as extremidades epostas*/
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+main h1{
+    font-family:'idroid';
+    color: var(--color5);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main h2{
+    font-family: 'idroid';
+    color: var(--color4);
+    font-size: 1em;
+    font-weight: normal;
+    padding-left: 8px;
+    background-image: linear-gradient(to right, var(--color1), transparent);
+
+}
+
+main img{
+    width: 100%; /*conf as img para terem largura de 100% assim elas ficam centralizadas*/
+}
+
+/*configura o tamanho da img bugdroid pra não perder rsolução*/
+main img.pequeno{
+    max-width: 350px; /*alterei o width:50% por max-width porque dessa forma a imagem não embaça e ao ser redusida, elatrava em 350px, assim não deforma*/
+    display: block;
+    margin: auto; /*só margin: auto não funciona pq o img não tratado como bloco, por isso é necessario o display: block*/
+}
+
+main p{
+    font-family: var(--font-padrao); /*aqui a font-family chama a var para todo main > p*/
+    text-align: justify; /*deixa o texto justificado, ouu seja com as querbras de linha no mesmo tamanho*/
+    text-indent: 30px; /*configura a intentação dos paragrafo*/
+    margin: 15px 5px; /* o primeiro px é relativa ao top e bottom, o segundo relativo a reight e left*/ 
+    font-size: 1em; /*configura um tamanho proporcional a conf line-height*/
+    line-height: 2em; /*configura a altura entre linhas pra facilitar a leitura*/
+}
+
+main strong{ /*configura "negrito dpo texto"*/
+    color: var(--color4);
+    font-weight: bold; /*conf PESO DA FONT*/
+    
+}
+
+main a{
+    text-decoration: none;
+    font-weight: bold; /* larguda da font*/
+    color: var(--color5);
+    background-color: var(--color1);
+    padding: 2px 5px; /*cof 2px top e bottom e 5px right e left*/
+}
+
+main a:hover{ /* conf acao ao interagirm com o mouse*/
+    text-decoration: underline;
+    color: var(--color3);
+}
+
+/*inicio da responsiveidade do video*/
+div.video{
+    background-color: var(--color5);
+    margin-bottom: 30px;
+    margin: 0px -20px 30px -20px; /*cof negativo pra cobrir barra*/
+    padding: 20px;
+    padding-bottom: 59%;
+    position: relative; /*permite confgurar o iframe como position: absolute*/
+}
+
+/*inicio da responsividade do ifrime*/
+div.video >iframe{
+    position: absolute;/*permite cof individeualmente top-left-width e height   */
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside{
+    background-color: var(--color1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.295);
+}
+
+aside h3{
+    background-color: var(--color4);
+    color: white;
+    padding:5px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul{
+    list-style-type: '\2714\00A0'; /*00A0 é o codigo pra espaço*/
+    list-style-position: inside; /*coloca os marcadores de cada item para dentro*/
+    columns: 2; /* coloca a lista em duas colunas*/
+}
+
+footer{
+    background-color: var(--color5);
+    color: white;
+    text-align:center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer >p{
+    color: white;
+    padding: 20px;
+}
